@@ -1,0 +1,20 @@
+<ion-header class="pageTitle">
+  <ion-toolbar>
+    <ion-title>
+      {{ pageTitle }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      <ion-label class="pageInfo">{{ pageInfo }}</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let insurance of insuranceData">
+      <ion-icon slot="start" name="{{ insurance.icon }}"></ion-icon>
+      <ion-label position="stacked" class="name">{{ insurance.name }}</ion-label>
+      <ion-label position="stacked" class="price">{{ insurance.price | paymentMode: 'EUR':insurance.term }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

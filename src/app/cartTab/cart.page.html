@@ -1,0 +1,28 @@
+<ion-header class="pageTitle">
+  <ion-toolbar>
+    <ion-title>
+      {{ pageTitle }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      <ion-label class="pageInfo">{{ pageInfo }}</ion-label>
+    </ion-list-header>
+    <ion-card *ngIf="insuranceData.length === 0" class="empty-cart">There are no insurances in your cart!</ion-card>
+    <ion-item *ngFor="let insurance of insuranceData">
+      <ion-label class="name">{{ insurance.name }}</ion-label>
+      <ion-label class="price">{{ insurance.price | paymentMode: 'EUR':insurance.term }}</ion-label>
+      <ion-icon name="remove-circle" (click)="removeInsurance(insurance)"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-label class="purchase">Total: {{ purchaseAmount | currency:'EUR'}}</ion-label>
+    <ion-button size="small" class="ion-float-right" (click)="checkout()">Buy</ion-button>
+  </ion-toolbar>
+</ion-footer>

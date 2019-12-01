@@ -1,0 +1,7 @@
+{
+  "name": "NN-Insurance-App",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
