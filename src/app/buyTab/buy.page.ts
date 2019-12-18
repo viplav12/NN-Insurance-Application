@@ -36,7 +36,9 @@ export class BuyTab implements OnInit {
 
   loadCart() {
     this.cartService.cart.subscribe((cart: Insurance[]) => {
-      this.cartData = cart;
+      this.cartData = cart.map(data => {
+        return data;
+      });
     });
   }
 

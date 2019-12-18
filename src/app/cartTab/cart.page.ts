@@ -31,7 +31,9 @@ export class CartTab implements OnInit {
 
   loadCart() {
     this.cartService.cart.subscribe((cart: Insurance[]) => {
-      this.insuranceData = cart;
+      this.insuranceData = cart.map(data => {
+        return data;
+      });
       this.calculatePurchaseAmount();
     });
   }
